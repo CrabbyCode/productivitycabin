@@ -13,8 +13,10 @@
     --accent4A: #86A8D4;
     --accent4: #bad1ef;
 
+    /*font styling*/
     --font_color1: #ffffff;
     --font_color2: #000000;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -28,6 +30,7 @@ body{
     grid-template-columns: auto;
     row-gap: 5px;
     /* TODO: is the distance good enough?*/
+    margin: 5px 5px;
     padding: 0.25vh 0.5vw;
 }
 header{
@@ -39,6 +42,7 @@ header{
 }
 header h1{
     margin-left: 0.5vw;
+    color:var(--font_color2)
     
 }
 header img{
@@ -60,21 +64,27 @@ nav a{
     
 }
 nav span{
-    display:inline-block;
-    width:200px;
+    display:flex;
+    width:16vw;
     text-align: center;
+    justify-content: center;
     background-color: var(--accent4);
+    border-radius: 18px;
+    margin:0px 3px 0px 3px;
 }
 article{
     grid-area: article;
     background-color: var(--bg_front);
-    height:82vh;
+    height:80vh;
     overflow: auto;
     padding:5px 5px;
     
 }
+h1{
+    color:var(--font_color1);
+}
 p{
-    color:var(--font_color1)
+    color:var(--font_color1);
 }
 /*aside{
     grid-area:aside;
@@ -86,7 +96,7 @@ footer{
 }*/
 #goToTopBtn{
     position:fixed;
-    bottom: 20px;
+    bottom: 30px;
     right:30px;
     width:50px;
     height:50px;
@@ -102,6 +112,8 @@ footer{
     position:relative;
     padding-top:0.75em;
 }
-
+#clickedMenu{
+    background-color: var(--accent2A);
+}
 
 
