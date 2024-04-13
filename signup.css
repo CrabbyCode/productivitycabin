@@ -138,6 +138,12 @@ label{
     margin-bottom: 3px;
     margin-top: 5px;
 }
+label[for="first-name"]{
+    margin-right:120px;
+}
+#first-name, #last-name{
+    min-width: 12rem;
+}
 input[type="submit"]{
     /* margin: 1rem; */
     margin-top: 20px;
@@ -166,7 +172,7 @@ img{
     max-width: 400px;
     position: relative;
     left: 50%;
-    bottom: 10rem;
+    bottom: 18rem;
     margin-left: 10px;
 }
 a{
@@ -189,14 +195,27 @@ a{
     img{
         width: 100px;
         left: 80%;
-        bottom: 360px;
+        bottom: 560px;
         
     }
     input{
         width: 100%;
         padding: 5px;
     }
+    #first-name,#last-name{
+        width: 47%;
+    }
     h1{
         font-size: 50px;
     }
+    label[for="first-name"]{
+        margin-right: 185px;
+    }
+
+}
+@media (max-width: 550) {
+    label[for="first-name"]{
+        margin-right: auto;
+    }
+
 }

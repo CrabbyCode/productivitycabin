@@ -14,10 +14,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link 
         rel="stylesheet"
-        href="login.css"
+        href="signup.css"
         >
         
-        <title>Login</title>
+        <title>Signup</title>
  
         
     <!--local version of bootstrap css
@@ -90,19 +90,26 @@
 
         </nav> -->
         <article>
-          <h1>Log In</h1>
+          <h1>Sign Up</h1>
           <div id="container">
           <form>
-            <label for="username-login">Username</label><br>
-            <input type="text" name="username-login" id="username-login" placeholder="Username" required><br>
+            <label for="first-name">First Name</label>
+            <label for="last-name">Last Name</label><br>
+            <input type="text" name="first-name" id="first-name" placeholder="First Name" required>
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name" required><br>
+
+            <label for="username-signup">Username</label><br>
+            <input type="text" name="username-signup" id="username-signup" placeholder="Username" required><br>
+            <label for="email-signup">Email</label><br>
+            <input type="email" name="email-signup" id="email-signup" placeholder="Email" required><br>
             <label for="password-login">Password</label><br>
-            <input type="password" name="password-login" id="password-login" placeholder="Password" required><br>
-            <input type="submit" value="Login">
+            <input type="password" name="password-signup" id="password-signup" placeholder="Password" required><br>
+            <input type="submit" value="Sign Up">
 
           </form>
           
           <img src="assets/logo_large.png" alt="Productivity Cabin">
-          <a style="color: #F9CD9C;" href="signup.html">No account yet? Sign Up</a>
+          <a style="color: #F9CD9C;" href="login.html">Already have an account?</a>
           
         </div>
           

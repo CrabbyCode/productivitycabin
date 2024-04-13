@@ -75,8 +75,8 @@ article{
     grid-area: article;
     background-color: var(--bg_front);
     /*header height + nav height = 153*/
-    /* height:calc(100vh - 111px); */
-    height: 100vh;
+    height:calc(100vh - 111px);
+
     overflow: auto;
     padding:20px 20px;
     
@@ -120,83 +120,4 @@ footer{
 .no-margin{
     margin-bottom: 0px;
 }
-/* ----------------------------------- contributo work */
-h1, label, input{
-    margin-left: 10px;
-}
 
-
-h1{
-    color: white;
-    margin-top: 130px;
-    margin-bottom: 30px;
-
-}
-label{
-    color: white;
-    font-weight: 30px;
-    margin-bottom: 3px;
-    margin-top: 5px;
-}
-input[type="submit"]{
-    /* margin: 1rem; */
-    margin-top: 20px;
-    background-color: #86A8D4;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-
-}
-input[type="submit"]:hover{
-    background-color: #0056b3;
-}
-input{
-    /* margin: 1rem; */
-border-radius: 10px;
-min-width: 25rem;
-}
-::placeholder {
-    opacity: 0.5; /* Adjust the opacity value to your preference */
-}
-
-
-
-img{
-    /* display: inline-block; */
-    max-width: 400px;
-    position: relative;
-    left: 50%;
-    bottom: 10rem;
-    margin-left: 10px;
-}
-a{
-    text-decoration: none; /* Remove the underline */
-
-}
-@media (max-width: 840px) {
-    img{
-        width: 200px;
-        left: 70%;
-    }
-}
-@media (max-width: 675px) {
-    img{
-        width: 150px;
-        left: 70%;
-    }
-}
-@media (max-width: 602px) {
-    img{
-        width: 100px;
-        left: 80%;
-        bottom: 360px;
-        
-    }
-    input{
-        width: 100%;
-        padding: 5px;
-    }
-    h1{
-        font-size: 50px;
-    }
-}
