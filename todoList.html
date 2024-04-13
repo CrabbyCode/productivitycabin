@@ -93,6 +93,29 @@
                     <input type="text" id="input-box"  class="input-box" placeholder="Add your text">
                     <button class="add-button" onclick="addTask()"><img src="assets/add-button.png" width="20" height="20"></button>
                 </div>
+                
+                <div class="options">
+                    <span>Urgency</span>
+                    <form>
+                        <label>
+                            <div class="urgency">
+                                <input type="radio" name="priority" value="normal" checked>
+                                <img src="assets/Normal.png" width="30" height="30">
+                            Normal
+                            </div>
+                        </label>
+                        <label>
+                            <div class="urgency">
+                                <input type="radio" name="priority" value="urgent">
+                                <img src="assets/Urgent.png" width="30" height="30">
+                            Urgent
+                            </div>
+                        </label>
+                    </form>  
+                </div>
+                <div class="deadline">
+                    <span>Deadline</span>
+                </div>
                 <div id="alert-message"></div>
                 <ul id="listed-container">
                     <!-- Task items will be dynamically added here -->

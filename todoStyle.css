@@ -205,6 +205,67 @@ footer{
         width: 10%;
     }
 }
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.options span{
+    font-weight: 800;
+    color: #002765;
+    font-size: 18px;
+}
+/* #07afd9 */
+.options form label{
+    margin-right: 15px;  
+}
+.urgency{
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    margin-right: 20px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.options input{
+    position: absolute;
+    display: flex;
+    height: 18%;
+    width: 18%;
+    margin:-10px -10px;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+}
+.options img{
+    color: #d9a807;
+}
+
+
+/* Apply styles to the radio inputs when checked */
+.urgency input[type="radio"]:checked + img {
+    background-color: #d9a807;
+    box-shadow: 0 0 12px #d9a807;
+    border-radius: 20%;
+    transition: all 500ms ease;
+}
+
+/* Apply styles to the radio inputs on hover */
+.urgency input[type="radio"]:hover + img {
+    box-shadow: 0 0 20px #d9a807;
+    border-radius: 20%;
+    transition: all 500ms ease;
+}
+
+.deadline{
+    margin-top: 30px;
+}
+.deadline span{
+    font-weight: 800;
+    color: #002765;
+    font-size: 18px;
+}
 
 #listed-container li {
     list-style: none;
