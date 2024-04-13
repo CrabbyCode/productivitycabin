@@ -1,0 +1,123 @@
+:root{
+    /*background color*/
+    --bg_back: #25272C;
+    --bg_front:#2A2D32;
+
+    /*accent color 1, accent color 1 variation A*/
+    --accent1A: #99B983;
+    --accent1: #BEDABC;
+    --accent2A: #E4B976;
+    --accent2: #F4C99A;
+    --accent3A: #C56161;
+    --accent3: #F0C5C5;
+    --accent4A: #86A8D4;
+    --accent4: #bad1ef;
+
+    /*font styling*/
+    --font_color1: #ffffff;
+    --font_color2: #000000;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+
+}
+
+body{
+    background-color: var(--bg_back);
+    display:grid;
+    grid-template-areas:
+    "head"
+    "nav"
+    "article";
+    grid-template-columns: auto;
+
+    
+
+    
+    
+}
+header{
+    grid-area:head;
+    background-color: var(--accent3A);
+    
+    
+}
+header h1{
+    margin-left: 0.5vw;
+    color:var(--font_color2)
+}
+header a{
+    text-decoration: none;
+}
+header img{
+    height:48px;
+    width: 48px;
+}
+
+nav{
+    grid-area:nav;
+
+    background-color: var(--bg_front);
+    padding: 5px 0px;
+    
+}
+nav a{
+    text-decoration: none;
+    color: var(--font_color2)  
+}
+/*highlights items in nav bar*/
+nav a:hover span{
+    background-color: var(--accent2A);
+    margin: 3px 3px;
+}
+/*nav span{
+    background-color: var(--font_color1);
+}*/
+article{
+    grid-area: article;
+    background-color: var(--bg_front);
+    /*header height + nav height = 153*/
+    height:calc(100vh - 111px);
+
+    overflow: auto;
+    padding:20px 20px;
+    
+}
+h1{
+    color:var(--font_color1);
+}
+p{
+    color:var(--font_color1);
+}
+/*aside{
+    grid-area:aside;
+    background-color:lightskyblue;
+}
+footer{
+    grid-area:foot;
+    background-color:lightyellow;
+}*/
+#goToTopBtn{
+    position:fixed;
+    bottom: 30px;
+    right:30px;
+    width:50px;
+    height:50px;
+    text-align: center;
+    text-justify: center;
+
+    border-radius: 120px;
+    background-color: var(--accent3);
+    text-decoration: none;
+    
+}
+#goToTopBtn img{
+    position:relative;
+    padding-top:0.75em;
+}
+#clickedMenu{
+    background-color: var(--accent2A);
+}
+
+.no-margin{
+    margin-bottom: 0px;
+}
+
