@@ -1,19 +1,23 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("listed-container");
 const alertMessage = document.getElementById("alert-message");
-
+const urgencyRadios = document.querySelectorAll('input[name="priority"]');
+const endDateInput = document.querySelector('input[name="Ended"]');
 
 function addTask() {
-    if (inputBox.value === '') {
+    if (inputBox.value === '' || !isUrgencySelected(urgencyRadios) || endDateInput.value === '') {
         // Display alert message in red above the input box
-        alertMessage.innerHTML = "You must write something!";
+        alertMessage.textContent = "Please fill in all fields!";
         alertMessage.style.color = "red";
+        return;
     } else {
         // Clear alert message if input is not empty
         alertMessage.innerHTML = "";
 
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
+        // Construct task item text with input value, urgency, and date
+        let taskText = `${inputBox.value} (Urgency: ${getSelectedUrgency()} - Deadline: ${endDateInput.value})`;
+        li.textContent = taskText;
         listContainer.appendChild(li);
 
         li.addEventListener('click', function() {
@@ -28,6 +32,22 @@ function addTask() {
             li.classList.toggle('checked');
         });
         
+    }
+}
+
+function isUrgencySelected(urgencyRadios) {
+    for (const radio of urgencyRadios) {
+        if (radio.checked) {
+            return true;
+        }
+    }
+    return false;
+}
+function getSelectedUrgency() {
+    for (const radio of urgencyRadios) {
+        if (radio.checked) {
+            return radio.value;
+        }
     }
 }
 
@@ -61,4 +81,20 @@ document.getElementById('deleteButton').addEventListener('click', function() {
 
 });
 
+// Get the current date in YYYY-MM-DD format
+function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 
+// Disable past dates in the date inputs
+document.addEventListener('DOMContentLoaded', function() {
+    const startDateInput = document.querySelector('input[name="Started"]');
+    const endDateInput = document.querySelector('input[name="Ended"]');
+    
+    startDateInput.min = getCurrentDate();
+    endDateInput.min = getCurrentDate();
+});
