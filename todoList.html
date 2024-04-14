@@ -87,6 +87,8 @@
 
         </nav>
         <article>
+            <div class="Article-container">
+            <!-- *START TO-DO LIST -->
             <div class="todo-app">
                 <h2>To-Do List<img src="assets/todo icon.gif"></h2>
                 <div class="row">
@@ -136,6 +138,42 @@
                         <img src="assets/delete.png" width="33" height="35" >
                     </button>
                 </span>
+            </div>
+            <!-- *END TO-DO LIST -->
+
+            <!-- &START TIMER -->
+            <div class="timer-app">  
+                <div id="timer-message">Please select a timer before starting.</div>
+
+                <div class="timer-container">
+                    <div class="timer">
+                        <span> Pomodoro Timer <img src="assets/sand-timer.gif" ></span>
+
+                        <div class="button-container">
+                        <button class="button" id="pomodoro-session">Pomodoro</button>
+                        <button class="button" id="short-break">Short Break</button>
+                        <button class="button" id="long-break">Long break</button>
+                        </div>
+
+                        <div id="pomodoro-timer" class="timer-display" data-duration="25.00">
+                        25:00
+                        </div>
+
+                        <div id="short-timer" class="timer-display" data-duration="5.00">
+                        5:00
+                        </div>
+
+                        <div id="long-timer" class="timer-display" data-duration="10.00">
+                        10:00
+                        </div>
+
+                        <div id="buttons">
+                        <button id="start">START</button>
+                        <button id="stop">STOP</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </article>
         <script src="todo.js"></script>
