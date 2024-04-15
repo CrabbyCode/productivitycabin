@@ -4,24 +4,28 @@ var fakeUsers = [
         age: 30,
         gender: "Male",
         occupation: "Engineer"
+        ,image: "img1.jpeg"
     },
     {
         username: "Alice-gamer",
         age: 25,
         gender: "Female",
         occupation: "Teacher"
+        ,image: "img2.jpeg"
     },
     {
         username: "Bob@somewhere",
         age: 35,
         gender: "Male",
         occupation: "Doctor"
+        ,image: "img1.jpeg"
     },
     {
         username: "Mo978",
         age: 35,
         gender: "Male",
         occupation: "Doctor"
+        ,image: "img2.jpeg"
     }
     
 ];
@@ -33,7 +37,7 @@ function showLog(){
     fakeUsers.forEach(user => {
         template+=`
             <div style = "border: 2px solid; background-color: #C1E1BF; border-radius: 20px; margin-left: 10px; color: black; margin-bottom: 10px; padding: 5px;">
-                <span style = "margin-left: 10px; margin-right: 40px; background-color: #C1E1BF; border-radius: 20px; padding: 5px;"><strong>${user.username}</strong> crossed: 
+                <span style = "margin-left: 10px; margin-right: 40px; background-color: #C1E1BF; border-radius: 20px; padding: 5px;"><img style = "width:50px; border-radius:5px; margin-right:10px;" src="assets/${user.image}" alt=""><strong>${user.username}</strong> crossed: 
                 ${tasks[i]}
                 </span>
             </div>
