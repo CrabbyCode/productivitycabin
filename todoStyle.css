@@ -143,19 +143,8 @@ footer{
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
-    animation: rotate 40s cubic-bezier(0.8, 0.2, 0.2, 0.8) infinite;
 }
-@keyframes rotate {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(20deg);
-    }
-    75% {
-        transform: rotate(-20deg);
-      }
-  }
+
 .todo-app h2{
     font-size: 32px;
     font-weight: 800;
