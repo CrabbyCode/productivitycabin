@@ -1,0 +1,14 @@
+.toDoTitle {
+  background-color: #c56161;
+  border-radius: 5px;
+}
+
+.DoingTitle {
+  background-color: #e4b976;
+  border-radius: 5px;
+}
+
+.DoneTitle {
+  background-color: #99b983;
+  border-radius: 5px;
+}

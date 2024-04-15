@@ -275,16 +275,19 @@ footer{
 
 .deadline{
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .deadline span{
     font-weight: 800;
     color: #002765;
     font-size: 18px;
 }
-#deadline-date{
+/* #deadline-date{
     display: flex;
     justify-content: space-around;
-}
+} */
 
 input[type="date"]{
     width: 200px;
@@ -298,6 +301,7 @@ input[type="date"]{
     text-transform: uppercase;
     box-shadow: 0px 10px 10px -7px #000;
     margin-bottom: 30px;
+    margin-top: 30px ;
 }
 
 
