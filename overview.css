@@ -1,34 +1,65 @@
 .toDoTitle {
   background-color: #c56161;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .DoingTitle {
   background-color: #e4b976;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .DoneTitle {
   background-color: #99b983;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .toDoBackGround {
   background-color: #f0c5c5;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .doingBackGround {
   background-color: #f4c99a;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .doneBackGround {
   background-color: #bedabc;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .taskCardBlack {
-  background-color: black;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.titleWithNumber {
+  font-size: 20px;
+  /*color: #fffdfa;*/
+  color: #171717;
+  font-weight: 600;
+}
+
+.titleMain {
+  font-size: 30px;
+  color: #fffdfa;
+  font-weight: 800;
+}
+
+.taskCardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #171717;
+}
+
+.col-5 span {
+  font-weight: 500;
+}
+
+.col-3 img {
+  border-radius: 50%;
+  border: 1px solid #171717;
 }
