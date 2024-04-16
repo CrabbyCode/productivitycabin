@@ -19,6 +19,7 @@ function addTask() {
         let li = document.createElement("li");
         // Construct task item text with input value, urgency, and date
         let taskText = `${inputBox.value} (Urgency: ${getSelectedUrgency()} - Deadline: ${endDateInput.value})`;
+
         li.textContent = taskText;
         listContainer.appendChild(li);
 

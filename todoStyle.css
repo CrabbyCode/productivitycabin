@@ -28,11 +28,6 @@ body{
     "nav"
     "article";
     grid-template-columns: auto;
-
-    
-
-    
-    
 }
 header{
     grid-area:head;
@@ -103,7 +98,6 @@ footer{
     height:50px;
     text-align: center;
     text-justify: center;
-
     border-radius: 120px;
     background-color: var(--accent3);
     text-decoration: none;
@@ -130,6 +124,7 @@ footer{
     width: 50%; /* Each takes half of the container's width */
     padding: 20px;
     box-sizing: border-box;
+    
 }
 /*
 
@@ -140,15 +135,20 @@ footer{
     position: relative;
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
 }
+
 .todo-app h2{
     font-size: 32px;
     font-weight: 800;
-    color: #002765;
+    color: #FFFDFA ;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -186,7 +186,7 @@ footer{
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: radial-gradient(circle at 3.1% 8.2%, rgb(250, 233, 107) 0%, rgb(234, 164, 74) 98.2%);
+    background: #C56161;
     color: #fff;
     cursor: pointer;
     border-radius: 40px;
@@ -194,7 +194,7 @@ footer{
 }
 
 .todo-app button.add-button:hover {
-    background: radial-gradient(circle at 8.1% 3.2%, rgb(250, 233, 107) 0%, rgb(234, 164, 74) 75.2%);
+    background: #C56161;
     width: 40%; /* Expand width on hover */
     animation: expandWidth 0.5s forwards; /* Animation to expand width */
 }
@@ -227,7 +227,7 @@ footer{
 }
 .options span{
     font-weight: 800;
-    color: #002765;
+    color: #FFFDFA;
     font-size: 18px;
 }
 /* #07afd9 */
@@ -254,56 +254,63 @@ footer{
     opacity: 0;
 }
 .options img{
-    color: #d9a807;
+    color: #C56161;
 }
 
 
 /* Apply styles to the radio inputs when checked */
 .urgency input[type="radio"]:checked + img {
-    background-color: #d9a807;
-    box-shadow: 0 0 12px #d9a807;
+    background-color: #C56161;
+    box-shadow: 0 0 12px #C56161;
     border-radius: 20%;
     transition: all 500ms ease;
 }
 
 /* Apply styles to the radio inputs on hover */
 .urgency input[type="radio"]:hover + img {
-    box-shadow: 0 0 20px #d9a807;
+    box-shadow: 0 0 20px #C56161;
     border-radius: 20%;
     transition: all 500ms ease;
 }
 
 .deadline{
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .deadline span{
     font-weight: 800;
-    color: #002765;
+    color: #FFFDFA;
     font-size: 18px;
 }
-#deadline-date{
+/* #deadline-date{
     display: flex;
     justify-content: space-around;
-}
+} */
 
 input[type="date"]{
     width: 200px;
     padding: 1cap;
     border: 0;
     border-radius: 10px;
-    background: radial-gradient(circle at 3.1% 8.2%, rgb(250, 233, 107) 0%, rgb(234, 164, 74) 98.2%);
+    background: #C56161;
     outline: none;
+    color: #FFFDFA;
     font-size: 15px;
+    font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
     box-shadow: 0px 10px 10px -7px #000;
     margin-bottom: 30px;
+    margin-top: 30px ;
 }
 
 
 #listed-container li {
     list-style: none;
     font-size: 17px;
+    color: #FFFDFA;
     font-weight: 600;
     padding: 12px 0px;
     user-select: none;
@@ -323,16 +330,25 @@ input[type="date"]{
     transform: translateY(-50%); 
     right: 12px; 
 }
-
-#listed-container li.checked{
-    color: #555;
+ 
+#listed-container li.checked {
+    color: #fffdfa9c;
     text-decoration: line-through;
-}
+    animation: shake 0.5s ease ; 
+  }
 
-#listed-container li.checked::before{
-    background-image: url(assets/check.png);
-    
-}
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  #listed-container li.checked::before {
+    background-image: url(assets/checked.png);
+    background-size: 30px; 
+  }
 
 #listed-container li.deleted::before {
     position: absolute;
@@ -357,7 +373,11 @@ input[type="date"]{
 .edit-delete button {
     border: none;
     outline: none;
-    background: white;   
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);   
 }
 
 /*
@@ -373,10 +393,15 @@ input[type="date"]{
     position: relative;
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    
 }
 .timer-container {
     display: flex;
@@ -385,29 +410,37 @@ input[type="date"]{
     text-align: center;
     width: 100%;
     padding: 10px 0;
+    
   }
 .timer {
     display: inline-block;
     padding: 10px;
     width: 600px;
     box-sizing: border-box;
+    
   }
 .timer span {
     font-size: 32px;
     font-weight: 800;
+    color: #FFFDFA;
     margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+.timer img{
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
   .button-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
   }
   .button {
-    background: radial-gradient(circle at 3.1% 8.2%, rgb(250, 233, 107) 0%, rgb(234, 164, 74) 98.2%);
-    color: #000;
+    background: #C56161;
+    color: #FFFDFA;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -424,14 +457,16 @@ input[type="date"]{
     font-size: 5em;
     margin-top: 20px;
     font-weight: bold;
+    color: #FFFDFA;
   }
+  
   #buttons {
     margin-top: 20px;
   }
   #start,
   #stop {
-    background: radial-gradient(circle at 3.1% 8.2%, rgb(250, 233, 107) 0%, rgb(234, 164, 74) 98.2%);
-    color: #000;
+    background: #C56161;
+    color: #FFFDFA;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
