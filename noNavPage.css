@@ -1,0 +1,6 @@
+article{
+    grid-area: article;
+    background-color: var(--bg_front);
+    /*header height + nav height = 153*/
+    height:calc(100vh - 56px);
+}

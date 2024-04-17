@@ -28,11 +28,6 @@ body{
     "nav"
     "article";
     grid-template-columns: auto;
-
-    
-
-    
-    
 }
 header{
     grid-area:head;
@@ -134,17 +129,17 @@ textarea{
     border-radius:16px;
     background-color: var(--accent4);
 }
-#membersTextarea{
+#textarea{
     margin:1em 2em;
 }
-
+/*
 input[type="text"]{
     border-radius:16px;
     padding:6px 12px;
     background-color: var(--accent4);
     width:40vw;
     margin: 1em 2em;
-}
+}*/
 input[type="submit"]{
     background-color: var(--accent1A);
     border-radius: 16px;
@@ -166,4 +161,19 @@ input[type="submit"]{
 #returnBtnAnchor{
     text-decoration: none;
     color: var(--font_color2); 
+}
+legend{
+    color:var(--font_color1);
+    font-size: 2em;
+}
+input[type="checkbox"]{
+    margin-left: 10px;
+    height:25px;
+    width:25px;
+}
+input[type="date"]{
+    border-radius:16px;
+    padding:6px 12px;
+    background-color: var(--accent4);
+    margin: 1em 2em;
 }
