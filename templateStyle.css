@@ -121,3 +121,49 @@ footer{
     margin-bottom: 0px;
 }
 
+label{
+    color:var(--font_color1);
+    font-size: 2em;
+    margin: 0em 1em;
+    
+}
+textarea{
+    width: 40vw;
+    height: 20vh;
+    padding: 12px 20px;
+    border-radius:16px;
+    background-color: var(--accent4);
+}
+#membersTextarea{
+    margin:1em 2em;
+}
+
+input[type="text"]{
+    border-radius:16px;
+    padding:6px 12px;
+    background-color: var(--accent4);
+    width:40vw;
+    margin: 1em 2em;
+}
+input[type="submit"]{
+    background-color: var(--accent1A);
+    border-radius: 16px;
+    margin:1em 1em;
+    padding:5px 10px;
+    font-weight: bold;
+    border: 1px var(--font_color1) solid;
+    
+}
+#returnBtn{
+    display:inline;
+    background-color: var(--accent2A);
+    border-radius: 16px;
+    margin:1em 1em;
+    padding:5px 10px;
+    font-weight: bold;
+    border: 1px var(--font_color1) solid;
+}
+#returnBtnAnchor{
+    text-decoration: none;
+    color: var(--font_color2); 
+}
