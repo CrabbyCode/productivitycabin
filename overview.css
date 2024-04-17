@@ -93,20 +93,27 @@
   width: 100%;
   padding-top: 5px;
   align-content: center;
+  margin-bottom: 1vh;
 }
 
-.taskCardGridL1 :nth-child(1) {
+.taskCardGridL1 #oneone {
   display: grid;
   width: 100%;
-
   align-content: center;
+  align-self: center;
+  align-items: center;
   height: 100%;
 }
 
-.taskCardGridL1 :nth-child(2) {
+.taskCardGridL1 #oneone p {
+  margin-bottom: 0;
+}
+
+.taskCardGridL1 #twotwo {
   display: grid;
   width: 100%;
   padding: 0 0 0 45%;
+  grid-template-columns: 1fr 1fr;
   align-content: center;
   justify-content: end;
   height: 100%;
@@ -122,4 +129,9 @@
   padding: 0 1vw;
   justify-content: start;
   column-gap: 5%;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
 }
