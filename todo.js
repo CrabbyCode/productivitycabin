@@ -7,9 +7,14 @@ const urgencyRadios = document.querySelectorAll('input[name="priority"]');
 const endDateInput = document.querySelector('input[name="Ended"]');
 
 function addTask() {
-    if (inputBox.value === '' || !isUrgencySelected(urgencyRadios) || endDateInput.value === '') {
+    // if (inputBox.value === '' || !isUrgencySelected(urgencyRadios) || endDateInput.value === '') {
+    //     // Display alert message in red above the input box
+    //     alertMessage.textContent = "Please fill in all fields!";
+    //     alertMessage.style.color = "red";
+    //     return;
+    if (inputBox.value === '') {
         // Display alert message in red above the input box
-        alertMessage.textContent = "Please fill in all fields!";
+        alertMessage.textContent = "Please fill the blank";
         alertMessage.style.color = "red";
         return;
     } else {
@@ -18,8 +23,9 @@ function addTask() {
 
         let li = document.createElement("li");
         // Construct task item text with input value, urgency, and date
-        let taskText = `${inputBox.value} (Urgency: ${getSelectedUrgency()} - Deadline: ${endDateInput.value})`;
-
+        // let taskText = `${inputBox.value} (Urgency: ${getSelectedUrgency()} - Deadline: ${endDateInput.value})`;
+        let taskText =`${inputBox.value}`;
+;
         li.textContent = taskText;
         listContainer.appendChild(li);
 
