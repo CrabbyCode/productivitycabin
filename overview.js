@@ -44,6 +44,7 @@ var doneItems = [
 window.onload = function (e) {
   loadTaskCards();
   loadNumTotals();
+  dragBehaviorForTaskCards();
 };
 
 function createTaskCard(
@@ -58,6 +59,8 @@ function createTaskCard(
   const elem = document.createElement("div");
   elem.classList.add("taskCardGrid");
   elem.classList.add(typeForClass);
+  elem.draggable = true;
+  elem.id = id;
   elem.innerHTML = `
  <div class="taskCardGridL1">
    <div id="oneone">
@@ -86,7 +89,7 @@ function createTaskCard(
            <a class="dropdown-item" href="./overviewTaskEdit.html">Edit</a>
          </li>
          <li>
-           <a class="dropdown-item" href="#" id="${id}">Delete</a>
+           <a class="dropdown-item" href="#" id="${"d" + id}">Delete</a>
          </li>
        </ul>
      </div>
@@ -168,7 +171,7 @@ function loadTaskCards() {
         item.id
       )
     );
-    document.getElementById(item.id).addEventListener("click", (e) => {
+    document.getElementById("d" + item.id).addEventListener("click", (e) => {
       toDoItems.splice(
         toDoItems.findIndex((i) => i.id == item.id),
         1
@@ -191,7 +194,7 @@ function loadTaskCards() {
       )
     );
 
-    document.getElementById(item.id).addEventListener("click", (e) => {
+    document.getElementById("d" + item.id).addEventListener("click", (e) => {
       doingItems.splice(
         doingItems.findIndex((i) => i.id == item.id),
         1
@@ -214,7 +217,7 @@ function loadTaskCards() {
       )
     );
 
-    document.getElementById(item.id).addEventListener("click", (e) => {
+    document.getElementById("d" + item.id).addEventListener("click", (e) => {
       doneItems.splice(
         doneItems.findIndex((i) => i.id == item.id),
         1
@@ -233,4 +236,95 @@ function loadNumTotals() {
   document.getElementById("toDoNumTotal").innerText = todo;
   document.getElementById("doingNumTotal").innerText = doing;
   document.getElementById("doneNumTotal").innerText = done;
+}
+
+function dragBehaviorForTaskCards() {
+  var todo = document.getElementById("toDoColumn");
+  var doing = document.getElementById("doingColumn");
+  var done = document.getElementById("doneColumn");
+
+  ////removing defualt behavior
+  todo.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+  doing.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+  done.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  /////setting data for drag
+  todo.addEventListener("dragstart", (e) => {
+    let j = JSON.stringify({ id: e.target.id, type: "todo" });
+    e.dataTransfer.setData("Text", j);
+  });
+
+  doing.addEventListener("dragstart", (e) => {
+    let j = JSON.stringify({ id: e.target.id, type: "doing" });
+    e.dataTransfer.setData("Text", j);
+  });
+
+  done.addEventListener("dragstart", (e) => {
+    let j = JSON.stringify({ id: e.target.id, type: "done" });
+    e.dataTransfer.setData("Text", j);
+  });
+
+  ////drop data dealing
+  todo.addEventListener("drop", (e) => {
+    let item = JSON.parse(e.dataTransfer.getData("Text"));
+    if (item["type"] === "doing") {
+      let deleted = doingItems.splice(
+        doingItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      toDoItems.push(deleted[0]);
+    } else if (item["type"] === "done") {
+      let deleted = doneItems.splice(
+        doneItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      toDoItems.push(deleted[0]);
+    }
+    loadNumTotals();
+    loadTaskCards();
+  });
+
+  doing.addEventListener("drop", (e) => {
+    let item = JSON.parse(e.dataTransfer.getData("Text"));
+    if (item["type"] === "todo") {
+      let deleted = toDoItems.splice(
+        toDoItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      doingItems.push(deleted[0]);
+    } else if (item["type"] === "done") {
+      let deleted = doneItems.splice(
+        doneItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      doingItems.push(deleted[0]);
+    }
+    loadNumTotals();
+    loadTaskCards();
+  });
+
+  done.addEventListener("drop", (e) => {
+    let item = JSON.parse(e.dataTransfer.getData("Text"));
+    if (item["type"] === "todo") {
+      let deleted = toDoItems.splice(
+        toDoItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      doneItems.push(deleted[0]);
+    } else if (item["type"] === "doing") {
+      let deleted = doingItems.splice(
+        doingItems.findIndex((i) => i.id == item["id"]),
+        1
+      );
+      doneItems.push(deleted[0]);
+    }
+    loadNumTotals();
+    loadTaskCards();
+  });
 }
