@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./overview.css" />
     <title>Overview</title>
 
+    <script src="overview.js" defer></script>
     <!--local version of bootstrap css
       <link href="../bootstrap-5.3.3-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">-->
   </head>
@@ -143,19 +144,22 @@
               </div>
 
               <div class="toDoTitle addButton">
-                <p style="font-size: 30px">+</p>
+                <p style="font-size: 30px">
+                  <a href="./overviewTaskEdit.html">+</a>
+                </p>
               </div>
             </div>
             <div class="container-fluid">
               <div class="row my-2 justify-content-center">
                 <div class="col-12 toDoBackGround align-items-center">
                   <p class="text-center titleWithNumber">
-                    <span>2</span> Tasks To Do
+                    <span id="toDoNumTotal"></span> Tasks To Do
                   </p>
                 </div>
               </div>
             </div>
-            <div class="taskCardGrid toDoBackGround">
+            <div id="toDoColumn"></div>
+            <!-- <div class="taskCardGrid toDoBackGround">
               <div class="taskCardGridL1">
                 <div id="oneone">
                   <p class="taskCardTitle">Swe363 Homework 3</p>
@@ -240,7 +244,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-4 mb-5">
             <div class="mainTitleBox">
@@ -249,18 +253,21 @@
               </div>
 
               <div class="doingTitle addButton">
-                <p style="font-size: 30px">+</p>
+                <p style="font-size: 30px">
+                  <a href="./overviewTaskEdit.html">+</a>
+                </p>
               </div>
             </div>
             <div class="container-fluid">
               <div class="row my-2 justify-content-center">
                 <div class="col-12 doingBackGround align-items-center">
                   <p class="text-center titleWithNumber">
-                    Doing <span>3</span> Tasks
+                    Doing <span id="doingNumTotal"></span> Tasks
                   </p>
                 </div>
               </div>
             </div>
+            <div id="doingColumn"></div>
           </div>
           <div class="col-md-4 mb-5">
             <div class="mainTitleBox" style="grid-template-columns: 1fr">
@@ -272,11 +279,12 @@
               <div class="row my-2 justify-content-center">
                 <div class="col-12 doneBackGround align-items-center">
                   <p class="text-center titleWithNumber">
-                    Done <span>3</span> Tasks
+                    Done <span id="doneNumTotal"></span> Tasks
                   </p>
                 </div>
               </div>
             </div>
+            <div id="doneColumn"></div>
           </div>
         </div>
       </div>
