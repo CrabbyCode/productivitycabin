@@ -123,7 +123,7 @@ label{
     
 }
 textarea{
-    width: 40vw;
+    width: 50vw;
     height: 20vh;
     padding: 12px 20px;
     border-radius:16px;
@@ -132,14 +132,14 @@ textarea{
 #textarea{
     margin:1em 2em;
 }
-/*
-input[type="text"]{
+/*solves a conflict with another stylesheet*/
+form > input[type="text"]{
     border-radius:16px;
     padding:6px 12px;
     background-color: var(--accent4);
-    width:40vw;
+    width:50vw;
     margin: 1em 2em;
-}*/
+}
 input[type="submit"]{
     background-color: var(--accent1A);
     border-radius: 16px;
@@ -176,4 +176,8 @@ input[type="date"]{
     padding:6px 12px;
     background-color: var(--accent4);
     margin: 1em 2em;
+}
+#centeredContent{
+    display:flex;
+    justify-content: center;
 }

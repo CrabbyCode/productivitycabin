@@ -99,8 +99,15 @@
         </nav>
         -->
         <article>
-          <form method="post" action="overview.html" enctype="multipart/form-data">
-            <label for="taskName">Task Name</label><br>
+          <div id="centeredContent">
+          <form method="post" action="overview.html">
+            <div style="display: flex; justify-content: space-between;">
+            <label for="taskName">Task Name</label>
+            <span>
+              <input type="submit" value="Save">
+              <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a>
+            </span>
+          </div>
             <input type="text" name="taskName" id="taskName" placeholder="name you task..." required><br>
             <label for="description">Description</label><br>
             <!--using a div to style the textarea with ease-->
@@ -113,9 +120,6 @@
             <br>
             <lable for="dob">Deadline</lable>
             <input type="date" id ="dob" name="userdob"><br>
-            
-            <input type="submit" value="Create New Project">
-            <a id = "returnBtnAnchor" href="projectsList.html"><div id="returnBtn">Return to projects list</div></a>
             </form>
 
             <!-- *START TO-DO LIST -->
@@ -125,40 +129,6 @@
                   <input type="text" id="input-box"  class="input-box" placeholder="Add your text">
                   <button class="add-button" onclick="addTask()"><img src="assets/add-button.png" width="20" height="20"></button>
               </div>
-              
-              <div class="options">
-                  <span>Urgency</span>
-                  <form>
-                      <label>
-                          <div class="urgency">
-                              <input type="radio" name="priority" value="normal" checked>
-                              <img src="assets/Normal.png" width="30" height="30">
-                          <span style="font-size: small; font-weight: 400;">Normal</span>
-                          </div>
-                      </label>
-                      <label>
-                          <div class="urgency">
-                              <input type="radio" name="priority" value="urgent">
-                              <img src="assets/Urgent.png" width="30" height="30">
-                              <span style="font-size: small; font-weight: 400;">Urgent</span>
-                          </div>
-                      </label>
-                  </form>  
-              </div>
-              <div class="deadline">
-                  <span>Deadline</span>
-                  <form id="deadline-date">
-                      <!-- <label>
-                        Start <br/>
-                        <input type="date" name="Started" value=""/>
-                      </label> -->
-                     
-                      <label>
-                        <input type="date" name="Ended" data-value="" value=""/>
-                      </label>
-                    </form>
-              </div>
-              
 
               <div id="alert-message"></div>
               <ul id="listed-container">
@@ -171,6 +141,7 @@
               </span>
           </div>
           <!-- *END TO-DO LIST -->
+        </div>
         </article>
     </body>
 </html>
