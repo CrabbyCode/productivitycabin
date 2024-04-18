@@ -1,21 +1,33 @@
+
 .toDoTitle {
   background-color: #c56161;
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .doingTitle {
   background-color: #e4b976;
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .doneTitle {
   background-color: #99b983;
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .toDoBackGround {
   background-color: #f0c5c5;
   border-radius: 7px;
+  
 }
 
 .doingBackGround {
@@ -37,6 +49,7 @@
   padding: 1px 1px;
   display: grid;
   justify-content: center;
+  
 }
 
 .titleWithNumber {
