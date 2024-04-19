@@ -317,7 +317,7 @@ input[type="date"]{
     margin: 10px 0;
     padding: 20px; /* Padding inside the card */
     border-radius: 18px;
-    border: 2px solid green; /* green border */
+    border: 2px ;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     user-select: none;
     cursor: pointer;
