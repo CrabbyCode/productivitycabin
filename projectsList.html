@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link 
         rel="stylesheet"
-        href="productivityLog.css"
+        href="templateStyle.css"
         >
         <link
         rel="icon"
@@ -16,7 +16,7 @@
         <!--imports google font icons-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
-        <title>Productivity Log</title>
+        <title>Projects List</title>
  
         
     <!--local version of bootstrap css
@@ -63,34 +63,73 @@
       </div>
     </div>
   </header>
-  <nav>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link" href="projectsList.html"><img src="assets/menu.svg" alt="Projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="overview.html"><img src="assets/overview_menu_icon.svg" alt="Overview">Overview</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="procutivityCabin.html"><img src="assets/productivity_cabin_page.svg" alt="Productivity Cabin">Productivity Cabin</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="productivityLog.html"><img src="assets/menu.svg" alt="Menu">Productivity Log</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="deadline.html"><img src="assets/deadline.svg" alt="Deadlines">Deadlines</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="settings.html"><img src="assets/account_settings.svg" alt="Settings">Settings</a>
-        </li>
-      </ul>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="projectsList.html"><img src="assets/menu.svg" alt="Projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="overview.html"><img src="assets/overview_menu_icon.svg" alt="Overview">Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="procutivityCabin.html"><img src="assets/productivity_cabin_page.svg" alt="Productivity Cabin">Productivity Cabin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="productivityLog.html"><img src="assets/menu.svg" alt="Menu">Productivity Log</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="deadline.html"><img src="assets/deadline.svg" alt="Deadlines">Deadlines</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="settings.html"><img src="assets/account_settings.svg" alt="Settings">Settings</a>
+                </li>
+              </ul>
 
-</nav>
+        </nav>
         <article>
-          <div id="container">
+          <div>
 
-          </div>
-        </article>
-        <script src="productivityLog.js"></script>
+            <a id="returnBtnAnchor" href="overview.html">
+            <div id="projectCard">
+              <img src="assets/logo_large.png" alt="Project picture">
+              
+              <div>
+                <h2>SWE363 Project</h2>
+                <span id="todoStat">To-do: 14</span>
+                <span id="doingStat">Doing: 3</span>
+                <span id="doneStat">Done: 8</span>
+              </div>
+            </div>
+          </a>
+            <br>
+            <a id="returnBtnAnchor" href="overview.html">
+            <div id="projectCard">
+              <img src="assets/logo_large.png" alt="Project picture">
+
+              <div>
+                <h2>SWE316 HW</h2>
+                <span id="todoStat">To-do: 6</span>
+                <span id="doingStat">Doing: 2</span>
+                <span id="doneStat">Done: 1</span>
+              </div>
+            </div>
+            </a>
+            <br>
+
+            <a id="returnBtnAnchor" href="overview.html">
+            <div id="projectCard">
+              <img src="assets/logo_large.png" alt="Project picture">
+              
+              <div>
+                <h2>Side Project</h2>
+                <span id="todoStat">To-do: 59</span>
+                <span id="doingStat">Doing: 0</span>
+                <span id="doneStat">Done: 13</span>
+              </div>
+            </div>
+          </a>
+            <br>
+            
+          </article>
     </body>
 </html>

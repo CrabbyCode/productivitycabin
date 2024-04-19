@@ -140,6 +140,20 @@ form > input[type="text"]{
     width:50vw;
     margin: 1em 2em;
 }
+input[type="text"]{
+    border-radius:16px;
+    padding:6px 12px;
+    background-color: var(--accent4);
+    width:50vw;
+    margin: 1em 2em;
+}
+input[type="password"]{
+    border-radius:16px;
+    padding:6px 12px;
+    background-color: var(--accent4);
+    width:50vw;
+    margin: 1em 2em;
+}
 input[type="submit"]{
     background-color: var(--accent1A);
     border-radius: 16px;
@@ -180,4 +194,64 @@ input[type="date"]{
 #centeredContent{
     display:flex;
     justify-content: center;
+    align-content: center;
+    
 }
+div > h1{
+    color:var(--font_color1);
+}
+#profilePicture{
+    height:200px;
+    width:200px;
+    border: 2px solid var(--font_color1);
+    border-radius: 360px; 
+}
+input[type="file"]{
+    color: var(--font_color1);
+    font-size: 0.5em;
+}
+fieldset{
+    color: var(--font_color1);
+    border: 1px solid var(--font_color1);
+}
+#bannerTxt{
+    font-weight: 500;
+}
+#projectCard{
+    display:flex;
+    align-items: center;
+        background-color: var(--accent4A);
+    border: 2px solid var(--font_color1);
+    border-radius: 18px;
+    padding: 8px 2px 8px 10px;
+    width: 90vw;
+    
+}
+#projectCard > img{
+    height:125px;
+    width:125px;
+    border-radius: 360px;
+    border: 2px solid white;
+    margin-right:8px;
+}
+#projectCard > div > span{
+    padding: 6px 12px;
+    margin: 2px 6px;
+    color: var(--font_color2);
+    font-size: 1.25em;
+    border: 2px solid var(--font_color1);
+    border-radius: 16px;
+}
+#todoStat{
+    background-color:var(--accent3A);
+}
+#doingStat{
+    background-color: var(--accent2A);
+}
+#doneStat{
+    background-color: var(--accent1A);
+}
+
+
+
+

@@ -11,6 +11,7 @@
         rel="stylesheet"
         href="todoStyle.css"
         >
+        
         <link
         rel="icon"
         type="image/png"
@@ -26,7 +27,7 @@
         <!--imports google font icons-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
-        <title>Template - change the name</title>
+        <title>Task details</title>
  
         
     <!--local version of bootstrap css
@@ -102,12 +103,13 @@
           <div id="centeredContent">
           <form method="post" action="overview.html">
             <div style="display: flex; justify-content: space-between;">
-            <label for="taskName">Task Name</label>
+            <h1>Task Details</h1>
             <span>
               <input type="submit" value="Save">
               <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a>
             </span>
           </div>
+            <label for="taskName">Task Name</label><br>
             <input type="text" name="taskName" id="taskName" placeholder="name you task..." required><br>
             <label for="description">Description</label><br>
             <!--using a div to style the textarea with ease-->
@@ -115,8 +117,8 @@
               <textarea id="description" name="description" rows="4" cols="10" placeholder="describe your task..."></textarea>
             </div>
             <br>
-            <label for="isastudent">Urgent?</lable>
-            <input type="checkbox" id ="isastudent" class="isastudent" name="isastudent">
+            <label for="urgent">Urgent?</lable>
+            <input type="checkbox" id ="urgent" class="isastudent" name="urgent">
             <br>
             <lable for="dob">Deadline</lable>
             <input type="date" id ="dob" name="userdob"><br>

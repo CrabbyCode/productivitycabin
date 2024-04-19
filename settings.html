@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link 
         rel="stylesheet"
-        href="productivityLog.css"
+        href="templateStyle.css"
         >
         <link
         rel="icon"
@@ -16,7 +16,7 @@
         <!--imports google font icons-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
-        <title>Productivity Log</title>
+        <title>Settings</title>
  
         
     <!--local version of bootstrap css
@@ -63,6 +63,7 @@
       </div>
     </div>
   </header>
+
   <nav>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -75,22 +76,56 @@
           <a class="nav-link" href="procutivityCabin.html"><img src="assets/productivity_cabin_page.svg" alt="Productivity Cabin">Productivity Cabin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="productivityLog.html"><img src="assets/menu.svg" alt="Menu">Productivity Log</a>
+          <a class="nav-link" aria-current="page" href="productivityLog.html"><img src="assets/menu.svg" alt="Menu">Productivity Log</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="deadline.html"><img src="assets/deadline.svg" alt="Deadlines">Deadlines</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="settings.html"><img src="assets/account_settings.svg" alt="Settings">Settings</a>
+          <a class="nav-link active" href="settings.html"><img src="assets/account_settings.svg" alt="Settings">Settings</a>
         </li>
       </ul>
 
 </nav>
+        
         <article>
-          <div id="container">
+          <div id="centeredContent">
+          <form method="post" action="overview.html">
+            <div style="display: flex; justify-content: space-between;">
+            <h1>Settings</h1>
+            <span>
+              <input type="submit" value="Save">
+              <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a>
+            </span>
+          </div>
+          <fieldset>
+            <legend>Profile Information</legend>
+            <div>
+              <img id="profilePicture" src="assets/logo_large.png" alt="profile picture">
+              <label for="profilepic">Change profile picture</lable>
+              <input type="file" accept=".jpg, .png, .jpeg" id="profilepic" name="profilepic">
+            </div>
+            
+            <label for="fname">First Name</label><br>
+            <input type="text" name="fname" id="fname" placeholder="Ahmed" value="firstname" required><br>
 
+            <label for="sname">Surname</label><br>
+            <input type="text" name="sname" id="sname" placeholder="Hamadah" value="Surname" required><br>
+          </fieldset>
+            <br>
+          <fieldset>
+            <legend>Account Safety</legend>
+            <label for="currentPwd">Current Password</label><br>
+            <input type="password" id="currentPwd" name="currentPwd" placeholder="enter your current password..."><br>
+
+            <label for="newPwd">Enter the New Password</label><br>
+            <input type="password" id="newPwd" name="newPwd" placeholder="enter the new password..."><br>
+
+            <label for="confirmPwd">Confirm the New Password</label><br>
+            <input type="password" id="confirmPwd" name="confirmPwd" placeholder="re-enter the new password..."><br>
+          </fieldset>
+          </form>
           </div>
         </article>
-        <script src="productivityLog.js"></script>
     </body>
 </html>
