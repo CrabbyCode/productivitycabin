@@ -503,3 +503,18 @@ input[type="date"]{
      border-radius: 1em;
         }
 
+/*
+Responsive
+*/
+@media(max-width: 940px){
+    
+
+    
+    
+}
+
+@media(max-width: 640px){
+    
+    
+    
+}

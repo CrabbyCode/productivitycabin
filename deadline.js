@@ -135,9 +135,19 @@ document.addEventListener('DOMContentLoaded', function () {
             details: "Add css to already built website with html in HW1",
             deadline: "2/4/2024",
             link: "overview.html"
-        }
+        },
+        {
+            title: "SWE 387 Homework2",
+            image: "assets/logo_large.png",
+            details: "Add evaluation criteria for proposals and start evaluating all groups",
+            deadline: "27/4/2024",
+            link: "overview.html"
+        },
+        
     ];
+    const tasksHeading = document.querySelector(".tasks-list-container h2");
 
+    tasksHeading.innerHTML = `${tasks.length} Tasks`;
     const tasksContainer = document.querySelector(".tasks-list-container .tasks");
 
     tasks.forEach(task => {

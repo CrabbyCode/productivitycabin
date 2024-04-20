@@ -186,6 +186,12 @@ input[type="date"]{
 
 Start deadline
 */
+.tasks-list-container {
+    width: 100%; /* Ensures the container takes the full width */
+    max-width: 100%; /* Prevents the container from exceeding the width of the page */
+    padding: 0 20px; /* Optional: Adds some padding on both sides */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
 
 .tasks-list-container h2{
     color: var(--font_color1);
@@ -219,6 +225,9 @@ Start deadline
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
+    margin: 20px auto; /* Centers the grid horizontally */
+    width: calc(100% - 40px); /* Full width taking into account the padding */
+    max-width: 100%; /* Makes sure it does not exceed the parent width */
 
 }
 
