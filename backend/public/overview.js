@@ -1,5 +1,5 @@
 var toDoItems = [
-  {
+  /* {
     id: 0,
     title: "Swe363 Homework3",
     desc: "Add javascript to already built website from previous homeworks",
@@ -14,27 +14,27 @@ var toDoItems = [
     subTasksNum: "3",
     deadline: "27/4/2024",
     urgent: false,
-  },
+  }, */
 ];
 var doingItems = [
-  {
+  /* {
     id: 2,
     title: "Swe363 Inreface Phase",
     desc: "Create interface front-end with html javascript and css",
     subTasksNum: "13",
     deadline: "20/4/2024",
     urgent: true,
-  },
+  }, */
 ];
 var doneItems = [
-  {
+  /* {
     id: 3,
     title: "Swe363 Homework2",
     desc: "Add css to already built website with html in hw1",
     subTasksNum: "2",
     deadline: "2/4/2024",
     urgent: false,
-  },
+  }, */
 ];
 
 ////
@@ -42,9 +42,31 @@ var doneItems = [
 ////
 //Main
 window.onload = function (e) {
-  loadTaskCards();
-  loadNumTotals();
-  dragBehaviorForTaskCards();
+  fetch("/?getTasks=true")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (result) {
+      result.tasks.forEach(function (task) {
+        var entry = {
+          title: task.name,
+          desc: task.details,
+          subTasksNum: "6",
+          deadline: task.deadline,
+          urgent: task.urgent,
+        };
+        if (task.type == "toDo") {
+          toDoItems.push(entry);
+        } else if (task.type == "doing") {
+          doingItems.push(entry);
+        } else {
+          doneItems.push(entry);
+        }
+      });
+      loadTaskCards();
+      loadNumTotals();
+      dragBehaviorForTaskCards();
+    });
 };
 
 function createTaskCard(

@@ -1,19 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const Task = require("./models/task");
 const app = express();
 const path = require("path");
-
-mongoose.connect("mongodb://localhost/test");
-
-const taskSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  details: { type: String, required: true },
-  urgent: { type: Boolean, required: true },
-  type: { type: String, required: true },
-  deadline: { type: String, required: true },
-});
-
-const Task = mongoose.model("Task", taskSchema);
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -22,7 +10,7 @@ app.get("/", function (req, res) {
     Task.find()
       .exec()
       .then(function (tasks) {
-        res.send(tasks[0].name);
+        res.json({ tasks: tasks });
       });
   } else {
     res.sendFile(path.join(__dirname, "public", "overview.html"));
@@ -31,14 +19,39 @@ app.get("/", function (req, res) {
 
 app.listen(3000, function () {
   console.log("listening on port 3000..");
-  /* var task1 = new Task({
-    name: "Swe363 hw3",
-    details: "add javascript to already built thing",
-    urgent: true,
-    type: "toDo",
-    deadline: "20/4/2024",
-  });
-  task1.save().then(function (task) {
-    console.log(task._id);
+
+  /* Task.insertMany([
+    {
+      name: "Swe363 Homework3",
+      details:
+        "Add javascript to already built website from previous homeworks",
+      urgent: true,
+      type: "toDo",
+      deadline: "20/4/2024",
+    },
+    {
+      name: "Swe387 Homework2",
+      details:
+        "Add evaluation criteria for proposals and start evalauting all groups",
+      urgent: false,
+      type: "toDo",
+      deadline: "27/4/2024",
+    },
+    {
+      name: "Swe363 Inreface Phase",
+      details: "Create interface front-end with html javascript and css",
+      urgent: true,
+      type: "doing",
+      deadline: "20/4/2024",
+    },
+    {
+      name: "Swe363 Homework2",
+      details: "Add css to already built website with html in hw1",
+      urgent: false,
+      type: "done",
+      deadline: "2/4/2024",
+    },
+  ]).then(function (tasks) {
+    console.log("entered " + tasks.length + " documents");
   }); */
 });
