@@ -42,13 +42,15 @@ var doneItems = [
 ////
 //Main
 window.onload = function (e) {
-  fetch("/?getTasks=true")
+  fetch("/overview?getTasks=true")
     .then(function (response) {
       return response.json();
     })
     .then(function (result) {
+      console.log(result);
       result.tasks.forEach(function (task) {
         var entry = {
+          id: task._id,
           title: task.name,
           desc: task.details,
           subTasksNum: "6",
@@ -111,7 +113,7 @@ function createTaskCard(
            <a class="dropdown-item" href="./overviewTaskEdit.html">Edit</a>
          </li>
          <li>
-           <a class="dropdown-item" href="#" id="${"d" + id}">Delete</a>
+           <p class="dropdown-item"  id="${"d" + id}">Delete</p>
          </li>
        </ul>
      </div>
@@ -217,10 +219,12 @@ function loadTaskCards() {
     );
 
     document.getElementById("d" + item.id).addEventListener("click", (e) => {
+      e.preventDefault();
       doingItems.splice(
         doingItems.findIndex((i) => i.id == item.id),
         1
       );
+      fetch(`/overview/${item.id}`).then(function (response) {});
       loadTaskCards();
       loadNumTotals();
     });

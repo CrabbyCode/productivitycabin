@@ -2,10 +2,11 @@ const express = require("express");
 const Task = require("./models/task");
 const app = express();
 const path = require("path");
+const router = express.Router();
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", function (req, res) {
+app.get("/overview", function (req, res) {
   if (req.query.getTasks) {
     Task.find()
       .exec()
@@ -16,6 +17,8 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "overview.html"));
   }
 });
+
+app.use("/overview", require("./routers/overview_router"));
 
 app.listen(3000, function () {
   console.log("listening on port 3000..");
