@@ -12,9 +12,7 @@ router.get("/delete/:id", function (req, res) {
 router.get("/update/:id", function (req, res) {
   console.log("reached update path");
   Task.updateOne({ _id: req.params.id }, { type: req.query.newType }).then(
-    function (task) {
-      console.log(task);
-    }
+    function (task) {}
   );
 });
 

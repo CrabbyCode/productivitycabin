@@ -307,12 +307,14 @@ function dragBehaviorForTaskCards() {
         1
       );
       toDoItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=toDo`);
     } else if (item["type"] === "done") {
       let deleted = doneItems.splice(
         doneItems.findIndex((i) => i.id == item["id"]),
         1
       );
       toDoItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=toDo`);
     }
     loadNumTotals();
     loadTaskCards();
@@ -333,6 +335,7 @@ function dragBehaviorForTaskCards() {
         1
       );
       doingItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=doing`);
     }
     loadNumTotals();
     loadTaskCards();
@@ -346,12 +349,18 @@ function dragBehaviorForTaskCards() {
         1
       );
       doneItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=done`);
+      ////////////////////////////
+      ////////////////////////////
+      ////////////////////////////
+      //must update progresses db as well
     } else if (item["type"] === "doing") {
       let deleted = doingItems.splice(
         doingItems.findIndex((i) => i.id == item["id"]),
         1
       );
       doneItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=done`);
     }
     loadNumTotals();
     loadTaskCards();
