@@ -2,7 +2,7 @@ const express = require("express");
 const Task = require("./models/task");
 const app = express();
 const path = require("path");
-const router = express.Router();
+const User = require("./models/user");
 
 app.use(express.static(path.join(__dirname, "public")));
 

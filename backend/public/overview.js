@@ -200,6 +200,7 @@ function loadTaskCards() {
         toDoItems.findIndex((i) => i.id == item.id),
         1
       );
+      fetch(`/overview/delete/${item.id}`).then(function (response) {});
       loadTaskCards();
       loadNumTotals();
     });
@@ -224,7 +225,7 @@ function loadTaskCards() {
         doingItems.findIndex((i) => i.id == item.id),
         1
       );
-      fetch(`/overview/${item.id}`).then(function (response) {});
+      fetch(`/overview/delete/${item.id}`).then(function (response) {});
       loadTaskCards();
       loadNumTotals();
     });
@@ -248,6 +249,7 @@ function loadTaskCards() {
         doneItems.findIndex((i) => i.id == item.id),
         1
       );
+      fetch(`/overview/delete/${item.id}`).then(function (response) {});
       loadTaskCards();
       loadNumTotals();
     });
@@ -324,6 +326,7 @@ function dragBehaviorForTaskCards() {
         1
       );
       doingItems.push(deleted[0]);
+      fetch(`/overview/update/${item["id"]}?newType=doing`);
     } else if (item["type"] === "done") {
       let deleted = doneItems.splice(
         doneItems.findIndex((i) => i.id == item["id"]),
