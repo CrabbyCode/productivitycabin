@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Use the deadline router
 app.use("/deadlines", deadlineRouter); //not sure
-
+app.use("/overview", require("./routers/overview_router"));
 app.get("/overview", function (req, res) {
   if (req.query.getTasks) {
     Task.find()
@@ -21,6 +21,10 @@ app.get("/overview", function (req, res) {
   } else {
     res.sendFile(path.join(__dirname, "public", "overview.html"));
   }
+});
+
+app.get("/deadlines", function (req, res) {
+  res.sendFile(path.join(__dirname, "public", "deadline.html"));
 });
 
 app.listen(3000, function () {
