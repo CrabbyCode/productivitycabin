@@ -3,6 +3,8 @@ const Task = require("./models/task");
 const app = express();
 const path = require("path");
 const User = require("./models/user");
+const Project = require("./models/project");
+const Progress = require("./models/progress");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -56,5 +58,33 @@ app.listen(3000, function () {
     },
   ]).then(function (tasks) {
     console.log("entered " + tasks.length + " documents");
+
+    User.insertMany([
+      {
+        firstName: "Tester",
+        lastName: "1",
+        username: "Tester",
+        password: "123",
+        email: "tester@test.com",
+      },
+    ]).then(function (user) {
+      console.log("added " + user.length + " user");
+      Project.insertMany([
+        {
+          title: "Project 1",
+          members: [user[0]._id],
+        },
+      ]);
+      Progress.insertMany([
+        {
+          member: user[0]._id,
+          task: tasks[0]._id,
+        },
+        {
+          member: user[0]._id,
+          task: tasks[2]._id,
+        },
+      ]);
+    });
   }); */
 });
