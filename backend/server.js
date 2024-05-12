@@ -3,6 +3,8 @@ const Task = require("./models/task");
 const app = express();
 const path = require("path");
 const User = require("./models/user");
+const Project = require("./models/project");
+
 // Require the router
 const deadlineRouter = require("./routers/deadline_router"); //not sure
 
@@ -25,6 +27,18 @@ app.get("/overview", function (req, res) {
 
 app.get("/deadlines", function (req, res) {
   res.sendFile(path.join(__dirname, "public", "deadline.html"));
+});
+
+app.get("/projects", function (req, res) {
+  if (req.query.getProjects) {
+    Project.find()
+      .exec()
+      .then(function (projects) {
+        res.json({ projects: projects });
+      });
+  } else {
+    res.sendFile(path.join(__dirname, "public", "projectsList.html"));
+  }
 });
 
 app.listen(3000, function () {

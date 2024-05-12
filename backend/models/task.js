@@ -5,6 +5,7 @@ const taskSchema = mongoose.Schema({
   urgent: { type: Boolean, required: true },
   type: { type: String, required: true },
   deadline: { type: String, required: true },
+  project: { type: mongoose.Schema.Types.ObjectId, ref: "Project" },
 });
 
 const Task = mongoose.model("Task", taskSchema);
