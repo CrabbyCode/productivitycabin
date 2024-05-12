@@ -3,8 +3,13 @@ const Task = require("./models/task");
 const app = express();
 const path = require("path");
 const User = require("./models/user");
+// Require the router
+const deadlineRouter = require("./routers/deadline_router"); //not sure
 
 app.use(express.static(path.join(__dirname, "public")));
+
+// Use the deadline router
+app.use("/deadlines", deadlineRouter); //not sure
 
 app.get("/overview", function (req, res) {
   if (req.query.getTasks) {
@@ -18,7 +23,12 @@ app.get("/overview", function (req, res) {
   }
 });
 
-app.use("/overview", require("./routers/overview_router"));
+
+
+
+
+
+
 
 app.listen(3000, function () {
   console.log("listening on port 3000..");

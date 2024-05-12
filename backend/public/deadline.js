@@ -98,6 +98,8 @@ const tasks = [
 
 
 */
+
+/*
 document.addEventListener('DOMContentLoaded', function () {
     const tasks = [
         {
@@ -164,6 +166,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         tasksContainer.appendChild(taskCard);
     });
+});
+*/
+//modfied
+document.addEventListener('DOMContentLoaded', function () {
+  // Fetch tasks dynamically from the server
+  fetch('/tasks/upcoming')
+      .then(response => response.json())
+      .then(tasks => {
+          const tasksHeading = document.querySelector(".tasks-list-container h2");
+          tasksHeading.innerHTML = `${tasks.length} Tasks`;
+
+          const tasksContainer = document.querySelector(".tasks-list-container .tasks");
+          tasksContainer.innerHTML = '';  // Clear previous task cards if any
+
+          tasks.forEach(task => {
+              let taskCard = document.createElement("div");
+              taskCard.className = "task";
+              taskCard.innerHTML = `
+                  <img src="${task.image}" alt="Task image">
+                  <h3 class="task-title">${task.title}</h3>
+                  <div class="details">${task.details}</div>
+                  <a href="${task.link}" class="details-btn">More details</a>
+                  <span class="deadline-task">${task.deadline}</span>
+              `;
+
+              tasksContainer.appendChild(taskCard);
+          });
+      })
+      .catch(error => {
+          console.error('Error fetching tasks:', error);
+          const tasksHeading = document.querySelector(".tasks-list-container h2");
+          tasksHeading.innerHTML = 'Error loading tasks';
+      });
 });
 
 //Search bar left 
