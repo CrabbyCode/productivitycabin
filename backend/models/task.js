@@ -4,7 +4,7 @@ const taskSchema = mongoose.Schema({
   details: { type: String, required: true },
   urgent: { type: Boolean, required: true },
   type: { type: String, required: true },
-  deadline: { type: String, required: true },
+  deadline: { type: Date, required: true },
   project: { type: mongoose.Schema.Types.ObjectId, ref: "Project" },
 });
 

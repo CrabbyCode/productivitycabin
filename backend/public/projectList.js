@@ -1,12 +1,4 @@
-var projects = [
-  {
-    id: 67,
-    title: "Prj1",
-    todo: 6,
-    doing: 78,
-    done: 55,
-  },
-];
+var projects = [];
 
 window.onload = function (e) {
   fetch("/projects?getProjects=true")
@@ -15,13 +7,13 @@ window.onload = function (e) {
     })
     .then(function (response) {
       console.log(response);
-      response.projects.forEach(function (projectData) {
+      response.forEach(function (projectData) {
         projects.push({
-          id: projectData._id,
-          title: projectData.title,
-          todo: 77,
-          doing: 89,
-          done: 77,
+          id: projectData.project._id,
+          title: projectData.project.title,
+          todo: projectData.counts[0],
+          doing: projectData.counts[1],
+          done: projectData.counts[2],
         });
       });
       loadProjectsHtml();
@@ -31,7 +23,7 @@ window.onload = function (e) {
 function createProjectCard(id, title, todo, doing, done) {
   const elem = document.createElement("div");
   elem.id = id;
-  elem.innerHTML = ` <a id="returnBtnAnchor" href="/overview">
+  elem.innerHTML = ` <div id="returnBtnAnchor" href="/overview">
   <div id="projectCard">
     <img src="assets/logo_large.png" alt="Project picture">
     
@@ -42,8 +34,13 @@ function createProjectCard(id, title, todo, doing, done) {
       <span id="doneStat">Done: ${done}</span>
     </div>
   </div>
-</a>
+</div>
   <br>`;
+  elem.addEventListener("click", function (e) {
+    localStorage.setItem("chosenProject", id);
+    console.log(localStorage.getItem("chosenProject"));
+    location.href = "/overview";
+  });
   return elem;
 }
 
