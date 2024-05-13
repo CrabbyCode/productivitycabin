@@ -8,16 +8,8 @@ const Progress = require("./models/progress");
 
 app.use(express.urlencoded());
 app.use(express.json());
-
-// Require the router
-const deadlineRouter = require("./routers/deadline_router"); //not sure
-const { title } = require("process");
-
 app.use(express.static(path.join(__dirname, "public")));
 
-// Use the deadline router
-app.use("/deadlines", deadlineRouter); //not sure
-app.use("/overview", require("./routers/overview_router"));
 app.get("/overview", function (req, res) {
   if (req.query.getTasks) {
     Task.find({ project: req.query.project })
@@ -77,10 +69,29 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
+app.get("/productivity", function (req, res) {
+  if (req.query.projectId) {
+    Progress.find({ project: req.query.projectId })
+      .populate("member")
+      .populate("task")
+      .exec()
+      .then(function (result) {
+        res.json(result);
+      });
+  } else res.sendFile(path.join(__dirname, "public", "productivityLog.html"));
+});
+
+app.get("/settings", function (req, res) {
+  res.sendFile(path.join(__dirname, "public", "settings.html"));
+});
+
+app.use("/deadlines", require("./routers/deadline_router"));
+app.use("/overview", require("./routers/overview_router"));
+
 app.listen(3000, function () {
   console.log("listening on port 3000..");
 
-  /* User.insertMany([
+  /*  User.insertMany([
     {
       firstName: "Tester",
       lastName: "1",
@@ -141,10 +152,12 @@ app.listen(3000, function () {
           {
             member: user[0]._id,
             task: tasks[0]._id,
+            project: project[0]._id,
           },
           {
             member: user[0]._id,
             task: tasks[2]._id,
+            project: project[0]._id,
           },
         ]);
       });

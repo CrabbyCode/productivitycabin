@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Task = require("../models/task");
-const path = require("path");
-const Project = require("../models/project");
+const Progress = require("../models/progress");
 
 router.get("/delete/:id", function (req, res) {
   Task.deleteOne({ _id: req.params.id }).then(function (task) {
@@ -51,6 +50,10 @@ router.post("/task/edit/:id", function (req, res) {
   ]).then(function (task) {
     res.sendStatus(200);
   });
+});
+
+router.delete("/progressRemove/:taskId", function (req, res) {
+  Progress.deleteOne({ task: req.params.taskId }).then(function (deleted) {});
 });
 
 module.exports = router;
