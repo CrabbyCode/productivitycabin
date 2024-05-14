@@ -27,10 +27,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link 
-        rel="stylesheet"
-        href="projectsList.css"
-        >
+    <link rel="stylesheet" href="projectsList.css" />
     <title>Projects List</title>
 
     <!--local version of bootstrap css
@@ -137,16 +134,27 @@
     <article id="mainBody">
       <button id="addProject">Add +</button>
       <dialog id="modal">
-        <!-- <form action="/createProject" method="post"> -->
-          <label for="pName">Project Name</label><br>
-          <input type="text" name="pName" id="pName" placeholder="Project-A" required><br>
-          <label for="member">Member</label><br>
-          <input type="text" name="member" id="member" placeholder="Member" required>
-          <button id="addM">Add</button><br>
+        <form action="/createProject" method="post" id="formId">
+          <label for="pName">Project Name</label><br />
+          <input
+            type="text"
+            name="pName"
+            id="pName"
+            placeholder="Project-A"
+            required
+          /><br />
+          <label for="member">Member</label><br />
+          <input type="text" name="member" id="member" placeholder="Member" />
+          <button id="addM">Add</button><br />
 
-          <input type="text" id="readonlyTextbox" placeholder="Info here" readonly>
-          <input type="submit" value="Submit">
-        <!-- </form> -->
+          <input
+            type="text"
+            id="readonlyTextbox"
+            placeholder="Info here"
+            readonly
+          />
+          <input type="submit" value="Submit" />
+        </form>
       </dialog>
       <!-- <a id="returnBtnAnchor" href="overview.html">
         <div id="projectCard">
@@ -197,6 +205,5 @@ addProject.addEventListener('click', () => {
 })
     </script> -->
     <!-- <script src="projectList.js"></script> -->
-
   </body>
 </html>

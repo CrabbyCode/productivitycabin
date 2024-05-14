@@ -1,12 +1,15 @@
 var projects = [];
 
 window.onload = function (e) {
-  fetch("/projects?getProjects=true")
+  fetch("/projects?getProjects=true", {
+    headers: {
+      userId: localStorage.getItem("userId"),
+    },
+  })
     .then(function (response) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
       response.forEach(function (projectData) {
         projects.push({
           id: projectData.project._id,
@@ -38,7 +41,7 @@ function createProjectCard(id, title, todo, doing, done) {
   <br>`;
   elem.addEventListener("click", function (e) {
     localStorage.setItem("chosenProject", id);
-    console.log(localStorage.getItem("chosenProject"));
+
     location.href = "/overview";
   });
   return elem;
@@ -58,15 +61,47 @@ function loadProjectsHtml() {
     );
   });
 }
-modal = document.querySelector("#modal")
-addProject = document.querySelector("#addProject")
-addM = document.querySelector("#addM")
-member = document.querySelector("#member")
-readonlyTextbox = document.querySelector("#readonlyTextbox")
-addProject.addEventListener('click', () => {
+membersToAdd = [localStorage.getItem("userId")];
+modal = document.querySelector("#modal");
+addProject = document.querySelector("#addProject");
+addM = document.querySelector("#addM");
+member = document.querySelector("#member");
+readonlyTextbox = document.querySelector("#readonlyTextbox");
+addProject.addEventListener("click", () => {
   modal.showModal();
-})
-addM.addEventListener('click', () => {
-  readonlyTextbox.value= `${readonlyTextbox.value} ${member.value}, `;
-  member.value="";
-})
+});
+addM.addEventListener("click", (e) => {
+  e.preventDefault();
+  fetch(`/projects/checkUser?username=${member.value}`).then(async function (
+    response
+  ) {
+    if (response.ok) {
+      readonlyTextbox.value = `${readonlyTextbox.value} ${member.value}, `;
+      memberId = await response.json();
+      membersToAdd.push(memberId.userId);
+      member.value = "";
+      console.log(membersToAdd);
+    } else {
+      window.alert("Username does not exist!");
+    }
+  });
+});
+
+document.getElementById("formId").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  fetch("/projects/addNew", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      title: document.getElementById("pName").value,
+      members: membersToAdd,
+    }),
+  }).then(function (res) {
+    window.location.href = "/projects";
+  });
+});
+
+document.getElementById();
