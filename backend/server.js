@@ -8,7 +8,6 @@ const Progress = require("./models/progress");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
-const Progress = require("./models/progress");
 
 app.use(express.urlencoded());
 app.use(express.json());
@@ -105,6 +104,8 @@ app.post("/signup", function (req, res) {
 
 });
 
+
+
 // app.post("/auth", function (req, res) {
 //   const {usernamelogin, passwordlogin} = req.body;
   
@@ -191,6 +192,7 @@ app.get("/settings", function (req, res) {
 
 app.use("/deadlines", require("./routers/deadline_router"));
 app.use("/overview", require("./routers/overview_router"));
+app.use("/settings", require("./routers/settings_router"))
 
 app.listen(3000, function () {
   console.log("listening on port 3000..");

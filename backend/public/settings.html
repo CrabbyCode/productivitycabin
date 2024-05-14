@@ -98,42 +98,75 @@
         
         <article>
           <div id="centeredContent">
-          <form method="post" action="overview.html">
+          <form method="post" action="/accUpdate" id="formId">
             <div style="display: flex; justify-content: space-between;">
             <h1>Settings</h1>
             <span>
               <input type="submit" value="Save">
-              <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a>
+              <!-- <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a> -->
             </span>
           </div>
           <fieldset>
             <legend>Profile Information</legend>
             <div>
-              <img id="profilePicture" src="assets/logo_large.png" alt="profile picture">
-              <label for="profilepic">Change profile picture</lable>
-              <input type="file" accept=".jpg, .png, .jpeg" id="profilepic" name="profilepic">
+              <!-- <img id="profilePicture" src="assets/logo_large.png" alt="profile picture"> -->
+              <!-- <label for="profilepic">Change profile picture</lable> -->
+              <!-- <input type="file" accept=".jpg, .png, .jpeg" id="profilepic" name="profilepic"> -->
             </div>
             
             <label for="fname">First Name</label><br>
-            <input type="text" name="fname" id="fname" placeholder="Ahmed" value="firstname" required><br>
+            <input type="text" name="fname" id="fname" placeholder="firstname"><br>
 
             <label for="sname">Surname</label><br>
-            <input type="text" name="sname" id="sname" placeholder="Hamadah" value="Surname" required><br>
+            <input type="text" name="sname" id="sname" placeholder="Surname"><br>
           </fieldset>
             <br>
           <fieldset>
             <legend>Account Safety</legend>
-            <label for="currentPwd">Current Password</label><br>
-            <input type="password" id="currentPwd" name="currentPwd" placeholder="enter your current password..."><br>
+            <!-- <label for="currentPwd">Current Password</label><br>
+            <input type="password" id="currentPwd" name="currentPwd" placeholder="enter your current password..."><br> -->
 
             <label for="newPwd">Enter the New Password</label><br>
-            <input type="password" id="newPwd" name="newPwd" placeholder="enter the new password..."><br>
+            <input type="password" id="newPwd" name="newPwd" placeholder="enter the new password..." ><br>
 
-            <label for="confirmPwd">Confirm the New Password</label><br>
-            <input type="password" id="confirmPwd" name="confirmPwd" placeholder="re-enter the new password..."><br>
+            <!-- <label for="confirmPwd">Confirm the New Password</label><br>
+            <input type="password" id="confirmPwd" name="confirmPwd" placeholder="re-enter the new password..."><br> -->
           </fieldset>
           </form>
           </div>
         </article>
     </body>
+    <script defer>
+      window.onload = function(){
+       fetch(`/settings/${localStorage.getItem("userId")}`).then(function(result){
+        return result.json()
+        
+       }).then(function(result){
+        document.getElementById("fname").value = result.firstName;
+        document.getElementById("sname").value = result.lastName;
+        document.getElementById("newPwd").value = result.password;
+       })
+      }
+      document.getElementById("formId").addEventListener("submit", async function(e){
+        e.preventDefault();
+    const response = await fetch(`/settings/accUpdate/${localStorage.getItem("userId")}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fname: document.getElementById("fname").value,
+            sname: document.getElementById("sname").value,
+            newPwd: document.getElementById("newPwd").value
+        })
+
+ });
+
+
+ const data = await response.json();
+ alert(data.message);
+
+ })
+      
+    </script>
 </html>
