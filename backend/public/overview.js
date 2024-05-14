@@ -42,6 +42,7 @@ var doneItems = [
 ////
 //Main
 window.onload = function (e) {
+  console.log(localStorage.getItem("userId"))
   fetch("/overview?getTasks=true")
     .then(function (response) {
       return response.json();

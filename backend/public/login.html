@@ -22,7 +22,47 @@
         
     <!--local version of bootstrap css
       <link href="../bootstrap-5.3.3-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">-->
+        <!-- ---------------------------------- -->
         
+        <!-- <script>
+          // document.getElementById("loginForm").addEventListener("submit", async function(event) {
+          //   event.preventDefault();
+        
+          //   const username = document.getElementById("username-login").value;
+          //   const password = document.getElementById("password-login").value;
+
+         
+        
+          //   try {
+          //     const response = await fetch("/auth", {
+          //       method: "POST",
+          //       headers: {
+          //         "Content-Type": "application/json"
+          //       },
+          //       body: JSON.stringify({ usernamelogin: username, passwordlogin: password })
+          //     });
+        
+          //     if (!response.ok) {
+          //       throw new Error("Login failed");
+      
+          //     }
+              
+        
+          //     // const { token } = await response.json();
+        
+          //     // Store the token in local storage
+          //     // localStorage.setItem("token", token);
+        
+          //     // Redirect to another page or perform any other actions
+          //     // const data = await response.json();
+          //     // localStorage.setItem("userId", data.userId);
+          //     window.location.href = "/overview";
+          //   } catch (error) {
+          //     console.error("Login error:", error);
+          //   }
+          });
+        </script> -->
+        <!-- ---------------------------------- -->
     </head>
     <body>
         <!--'go to top' button
@@ -93,20 +133,49 @@
           <div id="centeredContent">
           <h1>Log In</h1>
           <div id="container">
-          <form method="post" action="projectsList.html" enctype="multipart/form-data">
+          <form method="post" action="/auth" id="loginForm">
             <label for="username-login">Username</label><br>
-            <input type="text" name="username-login" id="username-login" placeholder="Username" required><br>
+            <input type="text" name="usernamelogin" id="username-login" placeholder="Username" required><br>
             <label for="password-login">Password</label><br>
-            <input type="password" name="password-login" id="password-login" placeholder="Password" required><br>
-            <input type="submit" value="Login">
+            <input type="password" name="passwordlogin" id="password-login" placeholder="Password" required><br>
+            <input type="submit" value="Login" id="subButton">
 
           </form>
           
           <img src="assets/logo_large.png" alt="Productivity Cabin">
-          <a style="color: #F9CD9C;" href="signup.html">No account yet? Sign Up</a>
+          <a style="color: #F9CD9C;" href="/signup">No account yet? Sign Up</a>
           
         </div>
       </div>
         </article>
+        <!-- ----------------- -->
+       <script>
+  //       console.log("script reached")
+  //     document.getElementById('subButton').addEventListener('click', async function(event) {
+  //       event.preventDefault(); // Prevent the form from submitting normally
+  // console.log("event reached")
+  //       const username = document.getElementById('username-login').value;
+  //       const password = document.getElementById('password-login').value;
+
+  //       const response = await fetch('/auth', {
+  //           method: 'POST',
+  //           headers: {
+  //               'Content-Type': 'application/json'
+  //           },
+  //           body: JSON.stringify({ usernamelogin: username, passwordlogin: password })
+  //       });
+
+  //       const data = await response.json();
+
+  //       if (response.ok) {
+  //           // Authentication successful
+  //           localStorage.setItem('userId', data.userId); // Store the user ID in local storage
+  //           window.location.href = '/overview'; // Redirect to overview page
+  //       } else {
+  //           alert(data.message); // Display error message
+  //       }
+  //   });
+</script>
+<script src="login.js"></script>
     </body>
 </html>

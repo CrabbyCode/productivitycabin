@@ -61,3 +61,15 @@ function loadProjectsHtml() {
     );
   });
 }
+modal = document.querySelector("#modal")
+addProject = document.querySelector("#addProject")
+addM = document.querySelector("#addM")
+member = document.querySelector("#member")
+readonlyTextbox = document.querySelector("#readonlyTextbox")
+addProject.addEventListener('click', () => {
+  modal.showModal();
+})
+addM.addEventListener('click', () => {
+  readonlyTextbox.value= `${readonlyTextbox.value} ${member.value}, `;
+  member.value="";
+})

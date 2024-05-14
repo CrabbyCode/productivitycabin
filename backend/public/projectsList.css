@@ -121,3 +121,36 @@ footer{
     margin-bottom: 0px;
 }
 
+#addProject {
+    padding: 10px 20px;
+    background-color: var(--accent1A);; /* Green color */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+#addM {
+    padding: 10px 20px;
+    background-color: var(--accent1A);; /* Green color */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+/* Change the color of the button when hovered */
+#addProject:hover {
+    background-color: #45a049; /* Darker green */
+}
