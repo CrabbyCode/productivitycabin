@@ -1,3 +1,7 @@
+window.onload = function (e) {
+  localStorage.removeItem("chosenProject");
+};
+
 console.log("script reached");
 document
   .getElementById("loginForm")

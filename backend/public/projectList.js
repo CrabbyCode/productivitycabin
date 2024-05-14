@@ -1,7 +1,7 @@
 var projects = [];
 
 window.onload = function (e) {
-  fetch("/projects?getProjects=true", {
+  fetch(`/projects?getProjects=true&userId=${localStorage.getItem("userId")}`, {
     headers: {
       userId: localStorage.getItem("userId"),
     },

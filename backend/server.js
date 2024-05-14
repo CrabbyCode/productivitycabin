@@ -46,7 +46,7 @@ app.get("/deadlines", function (req, res) {
 
 app.get("/projects", function (req, res) {
   if (req.query.getProjects) {
-    Project.find()
+    Project.find({ members: req.query.userId })
       .exec()
       .then(function (projects) {
         var toSendBack = [];
@@ -116,8 +116,6 @@ app.post("/signup", function (req, res) {
   });
 });
 
-
-
 // app.post("/auth", function (req, res) {
 //   const {usernamelogin, passwordlogin} = req.body;
 
@@ -177,7 +175,7 @@ app.get("/signout", function (req, res) {
 
 app.use("/deadlines", require("./routers/deadline_router"));
 app.use("/overview", require("./routers/overview_router"));
-app.use("/settings", require("./routers/settings_router"))
+app.use("/settings", require("./routers/settings_router"));
 app.use("/progress", require("./routers/progress_router"));
 app.use("/projects", require("./routers/project_router"));
 
