@@ -42,8 +42,8 @@ var doneItems = [
 ////
 //Main
 window.onload = function (e) {
-  console.log(localStorage.getItem("userId"))
-  fetch("/overview?getTasks=true")
+  const projectId = localStorage.getItem("chosenProject");
+  fetch(`/overview?getTasks=true&project=${projectId}`)
     .then(function (response) {
       return response.json();
     })
@@ -69,6 +69,20 @@ window.onload = function (e) {
       loadTaskCards();
       loadNumTotals();
       dragBehaviorForTaskCards();
+      document
+        .getElementById("todoAdd")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          localStorage.setItem("type", "toDo");
+          location.href = "/overviewTaskEdit.html";
+        });
+      document
+        .getElementById("doingAdd")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          localStorage.setItem("type", "doing");
+          location.href = "/overviewTaskEdit.html";
+        });
     });
 };
 
@@ -111,7 +125,7 @@ function createTaskCard(
        </button>
        <ul class="dropdown-menu">
          <li>
-           <a class="dropdown-item" href="./overviewTaskEdit.html">Edit</a>
+           <p class="dropdown-item" id="edit${id}">Edit</p>
          </li>
          <li>
            <p class="dropdown-item"  id="${"d" + id}">Delete</p>
@@ -127,29 +141,7 @@ function createTaskCard(
  </div>
 
  <div class="taskCardGridL3">
-   <div class="taskCardBlack">
-     <div>
-       <svg
-         xmlns="http://www.w3.org/2000/svg"
-         width="16"
-         height="16"
-         fill="#171717"
-         class="bi bi-person-workspace"
-         viewBox="0 0 16 16"
-         style="position: relative; bottom: 2px"
-       >
-         <path
-           d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
-         />
-         <path
-           d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"
-         />
-       </svg>
-       <span style="color: #171717"
-         ><span>${subTasksNum}</span> Tasks left</span
-       >
-     </div>
-   </div>
+   
 
    <div class="taskCardBlack">
      <div>
@@ -166,7 +158,9 @@ function createTaskCard(
            d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M6.854 8.146 8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 1 1 .708-.708"
          />
        </svg>
-       <span style="color: #171717">${deadline}</span>
+       <span style="color: #171717">${new Date(deadline).toLocaleDateString(
+         "en-US"
+       )}</span>
      </div>
    </div>
  </div>
@@ -205,6 +199,12 @@ function loadTaskCards() {
       loadTaskCards();
       loadNumTotals();
     });
+    document
+      .getElementById("edit" + item.id)
+      .addEventListener("click", function (e) {
+        localStorage.setItem("taskToEdit", item.id);
+        location.href = "/overviewTaskEdit.html";
+      });
   });
 
   doingItems.forEach((item) => {
@@ -230,6 +230,12 @@ function loadTaskCards() {
       loadTaskCards();
       loadNumTotals();
     });
+    document
+      .getElementById("edit" + item.id)
+      .addEventListener("click", function (e) {
+        localStorage.setItem("taskToEdit", item.id);
+        location.href = "/overviewTaskEdit.html";
+      });
   });
 
   doneItems.forEach((item) => {
@@ -254,6 +260,12 @@ function loadTaskCards() {
       loadTaskCards();
       loadNumTotals();
     });
+    document
+      .getElementById("edit" + item.id)
+      .addEventListener("click", function (e) {
+        localStorage.setItem("taskToEdit", item.id);
+        location.href = "/overviewTaskEdit.html";
+      });
   });
 }
 
@@ -316,6 +328,7 @@ function dragBehaviorForTaskCards() {
       );
       toDoItems.push(deleted[0]);
       fetch(`/overview/update/${item["id"]}?newType=toDo`);
+      fetch(`/overview/progressRemove/${item["id"]}`);
     }
     loadNumTotals();
     loadTaskCards();
@@ -337,6 +350,7 @@ function dragBehaviorForTaskCards() {
       );
       doingItems.push(deleted[0]);
       fetch(`/overview/update/${item["id"]}?newType=doing`);
+      fetch(`/overview/progressRemove/${item["id"]}`);
     }
     loadNumTotals();
     loadTaskCards();

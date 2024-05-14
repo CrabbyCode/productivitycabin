@@ -171,7 +171,8 @@ document.addEventListener('DOMContentLoaded', function () {
 //modfied
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch tasks dynamically from the server
-  fetch("/deadlines/upcoming")
+  const projectId = localStorage.getItem("chosenProject");
+  fetch(`/deadlines/${projectId}`)
     .then((response) => response.json())
     .then((tasks) => {
       const tasksHeading = document.querySelector(".tasks-list-container h2");
@@ -186,11 +187,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let taskCard = document.createElement("div");
         taskCard.className = "task";
         taskCard.innerHTML = `
-                  <img src="${task.image}" alt="Task image">
-                  <h3 class="task-title">${task.title}</h3>
+        <p class="deadline-task">${new Date(task.deadline).toLocaleDateString(
+          "en-US"
+        )}</p>
+                  <h3 class="task-title">${task.name}</h3>
                   <div class="details">${task.details}</div>
-                  <a href="${task.link}" class="details-btn">More details</a>
-                  <span class="deadline-task">${task.deadline}</span>
+                  <a href="/overview" class="details-btn">More details</a>
+                  
               `;
 
         tasksContainer.appendChild(taskCard);
@@ -204,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Search bar left
-tasks.forEach(addTaskToDOM);
+/* tasks.forEach(addTaskToDOM); */
 
 // Function to search tasks
 function searchTasks() {

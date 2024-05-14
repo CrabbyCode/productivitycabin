@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
         <title>Task details</title>
- 
+   <script src="./overviewTaskEdit.js" defer></script>
         
     <!--local version of bootstrap css
       <link href="../bootstrap-5.3.3-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">-->
@@ -101,12 +101,12 @@
         -->
         <article>
           <div id="centeredContent">
-          <form method="post" action="overview.html">
+          <form method="post" action="overview.html" onsubmit="event.preventDefault();" id="taskEditForm">
             <div style="display: flex; justify-content: space-between;">
             <h1>Task Details</h1>
             <span>
-              <input type="submit" value="Save">
-              <a id = "returnBtnAnchor" href="overview.html"><div id="returnBtn">Cancel</div></a>
+              <input type="submit" value="Save" id="saving">
+              <a id = "returnBtnAnchor" href="/overview"><div id="returnBtn">Cancel</div></a>
             </span>
           </div>
             <label for="taskName">Task Name</label><br>
@@ -125,7 +125,7 @@
             </form>
 
             <!-- *START TO-DO LIST -->
-            <div class="todo-app">
+           <!--  <div class="todo-app">
               <h2>To-Do List<img src="assets/todo icon.gif"></h2>
               <div class="row">
                   <input type="text" id="input-box"  class="input-box" placeholder="Add your text">
@@ -134,17 +134,17 @@
 
               <div id="alert-message"></div>
               <ul id="listed-container">
-                  <!-- Task items will be dynamically added here -->
-              </ul>
+                  < Task items will be dynamically added here -->
+             <!-- </ul>
               <span class="edit-delete">
                   <button id="deleteButton">
                       <img src="assets/delete.png" width="33" height="35" >
                   </button>
               </span>
-          </div>
+          </div> -->
           <!-- *END TO-DO LIST -->
         </div>
         </article>
-        <script src="todo.js"></script>
+        <!--<script src="todo.js"></script>-->
     </body>
 </html>

@@ -68,7 +68,7 @@
           </form>
 
           <div class="dropdown text-end">
-            <a
+            <button
               href="#"
               class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown"
@@ -81,14 +81,12 @@
                 height="32"
                 class="rounded-circle"
               />
-            </a>
+            </button>
             <!--TODO: doesn't work-->
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="/settings">Settings</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" href="/signout">Sign out</a></li>
             </ul>
           </div>
         </div>
@@ -96,27 +94,44 @@
     </header>
     <nav>
       <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="projectsList.html"><img src="assets/menu.svg" alt="Projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="overview.html"><img src="assets/overview_menu_icon.svg" alt="Overview">Overview</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="procutivityCabin.html"><img src="assets/productivity_cabin_page.svg" alt="Productivity Cabin">Productivity Cabin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="productivityLog.html"><img src="assets/menu.svg" alt="Menu">Productivity Log</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="deadline.html"><img src="assets/deadline.svg" alt="Deadlines">Deadlines</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="settings.html"><img src="assets/account_settings.svg" alt="Settings">Settings</a>
-          </li>
-        </ul>
-
-  </nav>
+        <li class="nav-item">
+          <a class="nav-link" href="/projects"
+            ><img src="assets/menu.svg" alt="Projects" />Projects</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/overview"
+            ><img
+              src="assets/overview_menu_icon.svg"
+              alt="Overview"
+            />Overview</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="procutivityCabin.html"
+            ><img
+              src="assets/productivity_cabin_page.svg"
+              alt="Productivity Cabin"
+            />Productivity Cabin</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/productivity"
+            ><img src="assets/menu.svg" alt="Menu" />Productivity Log</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/deadlines"
+            ><img src="assets/deadline.svg" alt="Deadlines" />Deadlines</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/settings"
+            ><img src="assets/account_settings.svg" alt="Settings" />Settings</a
+          >
+        </li>
+      </ul>
+    </nav>
     <article>
       <div class="container-fluid py-4 px-5">
         <div class="row gx-5 justify-content-center">
@@ -127,8 +142,8 @@
               </div>
 
               <div class="toDoTitle addButton">
-                <p style="font-size: 30px ;font-weight: 800">
-                  <a href="./overviewTaskEdit.html">+</a>
+                <p style="font-size: 30px; font-weight: 800">
+                  <a href="./overviewTaskEdit.html" id="todoAdd">+</a>
                 </p>
               </div>
             </div>
@@ -236,8 +251,8 @@
               </div>
 
               <div class="doingTitle addButton">
-                <p style="font-size: 30px ;font-weight: 800">
-                  <a href="./overviewTaskEdit.html">+</a>
+                <p style="font-size: 30px; font-weight: 800">
+                  <a href="./overviewTaskEdit.html" id="doingAdd">+</a>
                 </p>
               </div>
             </div>
