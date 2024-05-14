@@ -176,6 +176,7 @@ app.get("/signout", function (req, res) {
 app.use("/deadlines", require("./routers/deadline_router"));
 app.use("/overview", require("./routers/overview_router"));
 app.use("/progress", require("./routers/progress_router"));
+app.use("/projects", require("./routers/project_router"));
 
 app.listen(3000, function () {
   console.log("listening on port 3000..");
