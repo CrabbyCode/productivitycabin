@@ -43,7 +43,11 @@ var doneItems = [
 //Main
 window.onload = function (e) {
   const projectId = localStorage.getItem("chosenProject");
-  fetch(`/overview?getTasks=true&project=${projectId}`)
+  fetch(`/overview?getTasks=true&project=${projectId}`, {
+    headers: {
+      userId: localStorage.getItem("userId"),
+    },
+  })
     .then(function (response) {
       return response.json();
     })
@@ -329,6 +333,9 @@ function dragBehaviorForTaskCards() {
       toDoItems.push(deleted[0]);
       fetch(`/overview/update/${item["id"]}?newType=toDo`);
       fetch(`/overview/progressRemove/${item["id"]}`);
+      fetch(`/progress/${item["id"]}`, {
+        method: "DELETE",
+      });
     }
     loadNumTotals();
     loadTaskCards();
@@ -351,6 +358,9 @@ function dragBehaviorForTaskCards() {
       doingItems.push(deleted[0]);
       fetch(`/overview/update/${item["id"]}?newType=doing`);
       fetch(`/overview/progressRemove/${item["id"]}`);
+      fetch(`/progress/${item["id"]}`, {
+        method: "DELETE",
+      });
     }
     loadNumTotals();
     loadTaskCards();
@@ -369,6 +379,16 @@ function dragBehaviorForTaskCards() {
       ////////////////////////////
       ////////////////////////////
       //must update progresses db as well
+      fetch(`/progress/${item["id"]}`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: localStorage.getItem("userId"),
+          project: localStorage.getItem("chosenProject"),
+        }),
+      });
     } else if (item["type"] === "doing") {
       let deleted = doingItems.splice(
         doingItems.findIndex((i) => i.id == item["id"]),
@@ -376,6 +396,16 @@ function dragBehaviorForTaskCards() {
       );
       doneItems.push(deleted[0]);
       fetch(`/overview/update/${item["id"]}?newType=done`);
+      fetch(`/progress/${item["id"]}`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: localStorage.getItem("userId"),
+          project: localStorage.getItem("chosenProject"),
+        }),
+      });
     }
     loadNumTotals();
     loadTaskCards();
